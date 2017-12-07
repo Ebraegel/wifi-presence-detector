@@ -1,0 +1,3 @@
+# Scans the local network for MAC addresses matching a whitelist and sends events to IFTTT
+
+* * * * * root /path/to/wifi-presence-detector/wifi-presence-detector.sh

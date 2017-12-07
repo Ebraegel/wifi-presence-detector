@@ -1,0 +1,15 @@
+language: bash
+
+# Use container-based infrastructure for quicker build start-up
+sudo: false
+
+addons:
+  apt:
+    packages:
+    - shellcheck
+
+script:
+  - shellcheck -s bash *.sh
+
+matrix:
+  fast_finish: true
