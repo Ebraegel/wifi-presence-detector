@@ -82,7 +82,7 @@ check_dependencies() {
 
 main() {
   [[ $(id -u) -eq 0 ]] || { echo "Script must be run as root - bailing out!"; log "Script must be run as root - bailing out!"; exit 1; }
-  cd "$(dirname "$0")"
+  cd "$(dirname "$0")" || { echo "Somehow failed to cd to the script dir, permissions?!?!"; log "Somehow failed to cd to the script dir, permissions?!?!"; exit 1; }
   . .env
 
   # Ensure only one copy of the script can run at a time
