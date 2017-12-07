@@ -60,6 +60,9 @@ You can have it run every minute, as in the example cron file. The script uses f
 sudo cp wifi-presence-detector.cron.example /etc/cron.d/wifi-presence-detector && sudo chown root:root /etc/cron.d/wifi-presence-detector 
 ```
 
+- Add known MAC addresses to your `known_mac_addresses` file, one per line, case insensitive.
+These are probably the MAC addresses of the wireless adapters of mobile handsets, to make them useful for presence info.  You can probably find MAC addresses you might be interested in by logging in to your router to see connected devices, or with `nmap` or something 
+
 ### Test your IFTTT webhook
 You can use `test_post_to_ifttt.sh` to test your IFTTT webhook.  You'll need WPD_IFTTT_WEBHOOK_KEY to be set in your .env file.
 
