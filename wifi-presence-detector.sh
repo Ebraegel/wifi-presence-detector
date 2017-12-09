@@ -27,7 +27,7 @@ post_to_ifttt() {
 
 scan() {
   log "Starting scan of $WPD_SCAN_SUBNET"
-  if sudo nmap -sn "$WPD_SCAN_SUBNET" | grep -if known_mac_addresses >> "$WPD_LOGFILE"; then
+  if ip neighbor | grep REACHABLE | grep -if known_mac_addresses >> "$WPD_LOGFILE"; then
     scan_result='someone_home'
   else
     scan_result='no_one_home'
@@ -75,7 +75,6 @@ scan_forever() {
 }
 
 check_dependencies() {
-  command -v nmap &>/dev/null || { echo "nmap is required but not installed, bailing out!"; exit 1; }
   command -v flock &>/dev/null || { echo "flock is required but not installed, bailing out!"; exit 1; }
   command -v curl &>/dev/null || { echo "curl is required but not installed, bailing out!"; exit 1; }
  }
