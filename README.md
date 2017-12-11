@@ -1,6 +1,6 @@
 # wifi-presence-detector
 
-wifi-presence-detector is a bash script that checks the local network for the presence of devices matching known MAC addresses, and send s events to [IFTTT](https://ifttt.com) webhooks.  
+wifi-presence-detector is a bash script that uses nmap to check the local network for the presence of devices matching known MAC addresses, and send s events to [IFTTT](https://ifttt.com) webhooks.  
 
 Such events could probably be used in any number of ways by your IFTTT applets, but I'll focus on how they can be used to flip the status on a virtual switch on a Samsung Smart Things hub.  wifi-presence-detector does not track individuals; rather, it tracks two states: "someone is home" and "no one is home", based on whether it can match any devices on the network to a list of known MAC addresses.  In practice, I'm using this to determine whether I should be terribly worried about that door sensor opening, based on whether a phone belonging to someone I know is in the house (without giving them full access to all the smart home devices, which is a prerequisite for the built-in Smart Things phone-based presence tracking).
 
@@ -18,7 +18,7 @@ TODO: Add much more detail; most of these are placeholders
 ### Install Dependencies
 ```
 # or the package manager of your choice
-sudo apt-get update -y && sudo apt-get install -y flock curl
+sudo apt-get update -y && sudo apt-get install -y nmap flock curl
 ```
 
 ### Set up wifi-presence-detector
